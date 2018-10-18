@@ -3,4 +3,6 @@
 sudo apt-get update -y
 sudo apt-get upgrade -y
 sudo apt-get dist-upgrade -y
+sudo apt autoremove -y
 echo "$USER o sistema está atualizado. Tenha um bom trabalho"
+exit
