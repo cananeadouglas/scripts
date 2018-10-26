@@ -1,0 +1,66 @@
+#Aumento de produtividade
+#Criador de Soluções
+#Reconhecimento
+#Legado
+
+$ sudo apt-get install vim
+$ sudo apt-get install ksh
+
+-sh
+-bash
+-ksh
+-csh
+
+ls -ltr  = listar por ordem de criação, do mais velho para o mais novo
+
+touch  = serve para criar arquivos em branco ou atualizar o horário se já tiver o arquivo criado
+
+echo -n "oi "  = não quebra a linha
+
+rm  = remove arquivos
+rm -r  = remover pasta que tem arquivo
+rmdir  = remove pasta sem conteudo
+rm -f  = ignora saidas
+
+sleep 10  = segura 10 segundos
+
+cat  = resultado do arquivo
+cat >> arquivo.txt  = joga a saida para dentro do arquivo na ultima linha.
+
+cat -b arquivo2  = pular as linhas em branco
+cat -A arquivo2  = mostra caracteres especiais, espaços desnecessários
+
+cat  = normal
+tac  = inverso
+
+tail arquivo.txt  = mostra as ultimas 10 linhas do arquivo
+tail -n3 arquivo.txt  = mostra 3 linhas últimas
+
+head -n5 arquivo.txt  = mostra os primeiros 5 linhas
+
+wc alunos.txt  = saída vai ter 10 linhas 10 palavras e 70 caracteres
+wc alunos*  = vai fazer a contagem para todos os arquivos 
+wc -l
+
+tail -n5 alunos2.txt | wc -w  = saída de comando com a entrada do outro comando
+sort alunos.txt  = ordena de A-Z
+sort -k2 alunos.txt  = ordena por segundo campo 
+
+tail /etc/passwd | sort -k3 -t":"  = ordenando o campo por 3 campo e usando como delimitador o ":" (dois pontos)
+
+uniq alunox.txt  = não mostra repetência de nomes
+
+sorte alunos.txt | uniq  = ordena nomes e depois 'uniq' não deixa repetir os valores. (mostra uma vez só
+
+sorte alunos.txt | uniq -u  = mostra detalhes 
+sorte alunos.txt | uniq -d  = mostra detalhes
+sorte alunos.txt | uniq -c  = conta os repetidos
+
+sorte alunos.txt | uniq -c | sort  = mostra 1º ordenação, 2º contagem e 3º ordena por número
+
+sorte alunos.txt | uniq -c | sort - r  = invertido
+
+sorte alunos.txt | uniq -c | sort -r | head -n1  = mostra 1º ordenação, 2º contagem, 3º inverte do maior para o menor e 4º mostra só a primeira linha.
+
+
+
