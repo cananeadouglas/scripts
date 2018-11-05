@@ -48,19 +48,242 @@ sort -k2 alunos.txt  = ordena por segundo campo
 
 tail /etc/passwd | sort -k3 -t":"  = ordenando o campo por 3 campo e usando como delimitador o ":" (dois pontos)
 
-uniq alunox.txt  = não mostra repetência de nomes
+uniq alunox2.txt  = não mostra repetência de nomes
 
-sorte alunos.txt | uniq  = ordena nomes e depois 'uniq' não deixa repetir os valores. (mostra uma vez só
+sort alunos2.txt | uniq  = ordena nomes e depois 'uniq' não deixa repetir os valores. (mostra uma vez só
 
-sorte alunos.txt | uniq -u  = mostra detalhes 
-sorte alunos.txt | uniq -d  = mostra detalhes
-sorte alunos.txt | uniq -c  = conta os repetidos
+sort alunos2.txt | uniq -u  = mostra detalhes 
+sort alunos2.txt | uniq -d  = mostra detalhes
+sort alunos2.txt | uniq -c  = conta os repetidos
 
-sorte alunos.txt | uniq -c | sort  = mostra 1º ordenação, 2º contagem e 3º ordena por número
+sort alunos2.txt | uniq -c | sort  = mostra 1º ordenação, 2º contagem e 3º ordena por número
 
-sorte alunos.txt | uniq -c | sort - r  = invertido
+sort alunos2.txt | uniq -c | sort - r  = invertido
 
-sorte alunos.txt | uniq -c | sort -r | head -n1  = mostra 1º ordenação, 2º contagem, 3º inverte do maior para o menor e 4º mostra só a primeira linha.
+sort alunos2.txt | uniq -c | sort -r | head -n1  = mostra 1º ordenação, 2º contagem, 3º inverte do maior para o menor e 4º mostra só a primeira linha.
+
+cat alunos2.txt | tr a e  = troca a letra 'a' pela letra 'e'
+cat alunos2.txt | tr ' ' '\t'  = troca espaços por tab
+cat alunos2.txt | tr a-z A-Z  = troca letras minusculas por maiusculas
+cat alunos2.txt | tr -d aei  = deleta as letras aei
+
+echo "curso shell script" | tr l L  = troca as letras l para L
+echo "curso shelllll script" | tr -s 'l'  = comprime as letras repetidas
+echo "curso shell script" | tr [:lower:] [:upper:]  = imprime todas maiusculas
+
+cat alunos2.txt | cut -c1-5  = mostra os 5 caracteres de cada linha
+cat alunos2.txt | cut -c1,2,3  = mostra os 3 caracteres de cada linha ou a sequencia determinada
+cat alunos2.txt | cut -d" " -f1  = mostra a partir do primeiro espaço -d(delimitador) -f(campo) o primeiro campo.
+cat alunos2.txt | cut -d" " -f1,3  = mostra campo 1 e 3
+tail /etc/passwd | cut -d":" -f1,5  = mostra como delimitador : e campos 1 e 5
+
+diff -w alunos2.txt alunos3.txt  = mostra a diferença entre dois arquivos. -w elimina/ignora espaços
+diff -r arquivos arquivos-copia  = mostra diferenças entre as pastas
+
+grep  =  procurar conteúdo 
+grep Claudia alunos2.txt  = mostra somente o claudia
+grep Claudia alunos*  = mostra em todos os arquivos
+
+grep "Claudia mara" alunos*  = strings maiores
+grep -i RICARDO alunos*  = ignora case sensitive
+grep -c Ana alunos2.txt  = conta quantas vezes encontrou a palavra ana
+grep -v Ana alunos2.txt  = não retorna a linha ana, não mostra a string ana
+grep -r Ana *  = mostra a procura nas pastas/diretórios recursivamente onde tem a palavra Ana
+grep -rl Ana *  = mostra só o arquivo que contem a palavra Ana
+grep -A3 Carlos alunos2.txt  = mostra 3 linhas depois de encontrado a palavra Carlos
+
+grep -A3 -B3 Carlos alunos2.txt  = A de After, B de Before. 3 linhas antes e depois.
+grep  = aceita expressões regulares simples
+fgrep  = aceita expressões regulares longas
+egrep  = aceita expressões regulares ....
+
+Principais usos do sed, substituir e deletar.
+
+sed '1,3 d' alunos2.txt  = deleta as 3 primeiras linhas
+sed '/Rafael/d' alunos2.txt  = procura a palavra rafael e deleta a linha da palavra Rafael
+
+cat alunos2.txt | sed 's/Paulo/João/'  = subistitui Paulo por João.
+echo "Curso Linux Shell Script Linux" | sed 's/Linux/Unix/'  = subistitui a primeira ocorrência
+echo "Curso Linux Shell Script Linux" | sed 's/Linux/Unix/g'  = subistitui todas as ocorrências
+echo "Curso Linux Shell Script Linux" | sed 's/ //g'  = subistituindo um espaço por nada, (vai deixar tudo junto)
+
+usando more e less
+
+more arquivolongo.txt  = mostra linha por linha usando enter e espaço mostra página por página com percentual.
+less arquivolongo.txt  = tem as mesmas funções do more e ainda pode usar as setas para cima e para baixo, e faz pesquisa usando o '/' de cima pra baixo e '?' de baixo pra cima. usando 'n'(minusculo) para a proxima ocorrência. e 'N'(maiusculo) para ocorrencia anterior.
+
+cat -A arquivolongo.txt | grep 5 | less  = -A mostra os espaço e caracteres a mais, grep 5 procura linha que contenha a informação e less para fazer a visualização podendo fazer uma nova pesquisa. e prescionando 'q' ele sai da tela.
+
+find = procura por arquivos 
+
+find ./  = procurar do diretório pra frente
+find /  = procurar no barra'/'
+find ./ -name alunos.txt  = mostra por nome
+find ./ -name alunos*  = mostra todos que começam com alunos
+find ./ -user ricardo -name alunos2.txt
+
+executando comandos em cima das buscas
+
+find ./ -name Aul* -exec ls -la {} \;
+-rw-r--r-- 1 douglas douglas 0 set  1  2017 ./Exemplos/Aula5
+-rw-r--r-- 1 douglas douglas 0 set  1  2017 ./Exemplos/Aula2
+
+date  = mostra hora
+
+date --help  = mostra detalhes
+date +%d%m%a
+
+seq 5 12  = mostra sequencia
+seq 5 2 30  = mostra sequencia com interfalo de 2 em 2
+
+expr  = fazer contas
+expr 5 + 2  = mostra resultado 
+expr 5 \* 2  = mostra resultado
+
+bc faz conta dentro do script
+echo 3 + 2 | bc  = faz a conta da expressão digitada
+echo "(3+2)*5" | bc  = mostra o resultado 
+
+execução de comandos de forma sequencial
+
+date && echo linux && ls
+mesma coisa que
+date ; echo linux ; ls
+
+mais há uma diferença. quando executado com ';' se tiver algum erro ele executa a sequencia normal. com o '&&' ele só executa as funções certas quando chega na errada ele para e assim vai até o resto. (o resto da error)
+
+podemos usar o '||' para executar 
+
+cd .. ; ls -l  = volta uma pasta e exibe arquivos
+ls .. ; ls -l  = 
+
+( cd .. ; ls -l )  = não muda o diretório do terminal
+
+Redirecionamento de entrada e saída no shell
+
+Teclado               Tela
+STDIN (0)  program  > STDOUT (1)
+              |
+              ------> STDERR (2)
+
+cat alunos2.txt > alunos-temp.txt  = não mostra nada e a saída de cat vai para o novo arquivo chamado alunos-temp.txt
+se o arquivo já tiver sido criado o comando '>' apaga tudo e sobrescreve quando é executado novamente.
+
+date >> alunos-temp.txt  = adiciona a ultima linha
+
+1>  = saída normal, padrão
+2>  = saída de erro,
+
+ls -l alunos.txt3  = vai dar um erro
+ls -l alunos.txt3 > log.out  = ainda continua com erro e não grava informação
+ls -l alunos.txt3 2> log.out  = agora podemos fazer a gravação da saída de erro no arquivo podendo tbm concatenar com '2>>'
+
+ls -l alunos.txt3 > log.out 2> log-erro.out  = se esse comando der certo ele cria as informações no log.out se der errado ele cria informação no log-erro.out
+
+ls -l alunos.txt3 >> log.out 2>&1  = estou dizendo que a saida de erro vai ser a mesma que a padrão
+
+ls -l alunos.txtt 2> /dev/null  = joga no buraco negro.(não grava em lugar nenhum)
+
+tr 'a' 'Z' < alunos.txt  = to dizendo para substituir de 'a' para 'Z' e recebe como parametro '<' alunos.txt para entrada
+
+env | less
+set | less
+
+variavel=valor  = variável local do terminal
+
+pid do bash atual
+echo $$  = mostra pid
+
+trabalhando com variáveis, determinando variavel hora
+HORA=$(date +%H)
+echo $HORA  = 15
+echo $HORA"h"  = 15h
+echo $HORA:$MINUTO
+
+env  = ver só as variavel exportada
+set  = ver só as variavel local e exportada
+
+env | grep HORA  = não vê a variável
+set | grep HORA  = ver a variável
+
+para exportar vc faz "export HORA", o env vai passar a reconhecer essa variável
+
+export VAR1=Valor  = declaração + exportação ao mesmo tempo
+
+""  = aspas duplas protegem tudo menos ( $ ` / )
+
+EDITOR VI
+
+ctrol + F = proxima página
+ctrol + B = página anterior
+
+i  = insersão de dados  (mostra em baixo INSERT) para sair ESC
+
+:  = modo de comando
+
+:1  = primeira linha do arquivo
+:$  = ultima linha do arquivo
+
+:20  = vai na linha 20
+
+:!  = (pode digitar um comando no bash)
+ex. :!ls /tmp  = executa o ls /tmp e depois volta para o arquivo vi
+
+modo de busca
+
+/linux  = de cima para baixo
+n   = proximo
+shift + n  = anterior
+
+?linux  = de baixo pra cima
+n  = proximo
+shift + n  = anterior
+
+recortar linha
+vai na linha desejada
+dd  = recortou a linha que estava
+
+se eu quiser remover/recortou 4 linhas, vai na primeira linha
+digita "d4d" e ele recortou
+
+se quiser colar essa linha recortada. vai na linha posterior
+e digita "p" de paste. 
+e a linha será colada.
+
+yy  = para copiar
+p  = para colar
+
+y5y  = copia as 5 linhas
+p  = para colar
+
+:w  = para salvar
+:wq  = para sair e salvar
+
+se caso eu alterar com o "i" e depois querer só sair com o ":q" ele vai dar uma msg que tem que salvar.
+
+vc pode usar o  ":wq" para salvar ou
+vc pode usar o  ":q!" para confirmar a saida sem salvar
+
+:x  = também sai e salva
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
