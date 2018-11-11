@@ -1,9 +1,12 @@
 #!/bin/bash
 # Exemplo de condicional simples em um script
 
-if ls /home/douglas/Documentos/scripts/test
-then 
-  echo "Diretório válido"
-else
-  echo "Diretório não encontrado ou não existe"
-fi
+lista=$(ls -la | wc -l)
+
+total=$$lista+1 | bc -l
+echo $total
+#then 
+#  echo "Diretório válido com 18 unidades"
+#else
+#  echo "Diretório não tem 18 arquivos"
+#fi

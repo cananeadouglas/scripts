@@ -30,6 +30,10 @@ cat >> arquivo.txt  = joga a saida para dentro do arquivo na ultima linha.
 cat -b arquivo2  = pular as linhas em branco
 cat -A arquivo2  = mostra caracteres especiais, espaços desnecessários
 
+enumerar linhas no cat ou tac
+cat -n nome_do_arquivo.txt  = enumera
+cat -b -n -A nome_do_arquivo.txt  = '-b' pula as linhas em branco, '-n' enumera e '-A' mostra caractere especial como espaços desnecessários.
+
 cat  = normal
 tac  = inverso
 
@@ -73,7 +77,7 @@ echo "curso shell script" | tr [:lower:] [:upper:]  = imprime todas maiusculas
 
 cat alunos2.txt | cut -c1-5  = mostra os 5 caracteres de cada linha
 cat alunos2.txt | cut -c1,2,3  = mostra os 3 caracteres de cada linha ou a sequencia determinada
-cat alunos2.txt | cut -d" " -f1  = mostra a partir do primeiro espaço -d(delimitador) -f(campo) o primeiro campo.
+cat alunos2.txt | cut -d" " -f1  = mostra a partir do primeiro espaço -d (delimitador) -f (campo) o primeiro campo.
 cat alunos2.txt | cut -d" " -f1,3  = mostra campo 1 e 3
 tail /etc/passwd | cut -d":" -f1,5  = mostra como delimitador : e campos 1 e 5
 
@@ -266,10 +270,71 @@ vc pode usar o  ":q!" para confirmar a saida sem salvar
 
 :x  = também sai e salva
 
+Expressões Regulares
+
+File Globbing x REGEX
+forma de bash x expressões regulares
 
 
+exemplos de file globbing
 
+ls -la Aula*  = Aula01, Aula02...
 
+por caracter
+ls -la Aula[12345]  = Aula1, Aula2, Aula3, Aula4....
+ls -la Aula[1-5]  = Aula1, Aula2, Aula3, Aula4....
+ls -la Aul[Aa][1-5]  = Aula1, Aula2, Aula3, Aula4....
+ls -la *[12]  = Aula1, AULA2, Aula3, AULA4....
+ls -la {Aula,AULA}11  = Aula11, AULA11
+ 
+ls -la Aula1?  = depois do 1 ter somente 'um' caracter- Aula10, Aula11, Aula12
+
+ls -la Aula?  = Aula1, Aula2, Aula3 ...
+rm Aula*  = vai apagar tudo que tem Aulaxxxxxx
+
+egrep -i "R[aeiou]" comissionados.txt  = 
+
+RAFAEL DE SOUZA CALHEIROS;
+RICARDO JOSE CORRIA SANTA RITTA;
+ROBERVAL FERREIRA DA SILVA;
+
+egrep -i "R[a-u]" comissionados.txt  = 
+
+RAFAEL DE SOUZA CALHEIROS;
+RICARDO JOSE CORRIA SANTA RITTA;
+ROBERVAL FERREIRA DA SILVA;
+
+egrep -i "^m" comissionados.txt  = que a linha começe com 'm' tanto faz se é 'M' ou 'm' 
+
+MARTA PALMEIRA MELO
+MARY CRISTINA PACHECO FERNANDES
+MOAB DORTA BARBOSA
+
+egrep -i "^#" comissionados.txt
+
+# nao esta funcionando os caracteres como acentos
+# final dos comentarios
+
+egrep -i -V "^#" comissionados.txt  = 'i' case sensitive, '-V' não mostra nada que contenha '#'
+
+egrep -i "GERAL$" comissionados.txt  = sempre que encontrar a palavra geral no final da linha ele retorna.
+
+egrep -i "^$" comissionados.txt  = entre o começo e o final mostrar as linhas em branco
+
+egrep -i -V "^$" comissionados.txt  = entre o começo e o fim mostrar todas as linhas, (o inverso '-V')
+
+Para Adicionar uma pasta no $PATH e executar scripts de qualquer lugar. 
+
+# echo $PATH  = terá informações das pastas adicionadas.
+se eu tiver na pasta do script, eu indico o arquivo com ./nome.sh
+
+# PATH="$PATH:/home/douglas/Documentos/scripts"
+
+# echo $PATH  = quando eu colocar pra listar novamente ele vai aparecer e vai ficar enquanto o terminal estiver aberto
+
+para adicionar ele pra carregar no inicio do sistema:
+# vi ~/.profile  = para deixar definitivo
+colocar na ultima linha: "PATH="$PATH:~/douglas/Documentos/scripts"
 
 
 
