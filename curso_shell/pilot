@@ -336,6 +336,45 @@ para adicionar ele pra carregar no inicio do sistema:
 # vi ~/.profile  = para deixar definitivo
 colocar na ultima linha: "PATH="$PATH:~/douglas/Documentos/scripts"
 
+_______________________________________
+retornando um código de erro do sistema
+RETURN_CODE=$?
+echo "$?"
+
+forçando um código de saída
+exit 10
+
+_______________________________________
+comando 'read'
+# read NOME
+Escreve:
+> Douglas Cananéa
+# echo $NOME
+Mostra:
+# Douglas Cananéa
+
+com perguntas
+# read -p "Informe o seu curso: " CURSO
+> Sistema de Informação
+# echo $CURSO
+mostra:
+# Sistema de Informação
+
+com código
+# read -s CODIGO
+> 133
+# echo $CODIGO
+mostra:
+# 133
+
+
+
+
+
+
+
+
+
 
 
 
