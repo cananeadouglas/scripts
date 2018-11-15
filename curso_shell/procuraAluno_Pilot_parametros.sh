@@ -7,12 +7,11 @@ clear
 LOCAL_ARQ="/home/douglas/Documentos/scritps/curso_shell/pilot"
 
 echo -n "informe o nome de pesquisa aqui: -> "
-read NOME
-clear
+
+ALUNOCOMPLETO=$(grep -i "$1" $LOCAL_ARQ)
+
 echo ""
-echo "nome de pesquisa foi: $NOME"
+echo "nome de pesquisa foi: $ALUNOCOMPLETO"
 echo ""
-echo ""
-echo "$(grep -i "$NOME" $LOCAL_ARQ)"
-echo ""
+echo "FIM DO SCRIPT"
 

@@ -367,6 +367,10 @@ com código
 mostra:
 # 133
 
+comando scp
+   scp atualizacao.sh pi@192.168.1.201:/home/pi/Desktop
+copiaS Arquivo        usuario@host:Local_para_cópia
+
 
 
 
