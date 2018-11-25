@@ -370,12 +370,94 @@ mostra:
 comando scp
    scp atualizacao.sh pi@192.168.1.201:/home/pi/Desktop
 copiaS Arquivo        usuario@host:Local_para_cópia
+________________________
+Estrutura if, else
 
+if (comando - condição)
+then
+	(comando1)
+else
+	(comando2)
+fi
+________________________
+Estrutura if, elif, else
 
+if (comando - condição1)
+then
+	(comando1)
+elif (comando - condição2)
+then
+	(comando2)
+else
+	(comando3)
+fi
+_________________________
 
+test ou []
 
+testando valores númericos
 
+-eq	igual (equal)
+-ne	diferente (not equal)
+-gt	maior que (greater than)
+-ge	maior ou igual que (greater equal)
+-lt	menor que (lower than)
+-le	menor ou igual que (lower equal)
+__________________________________________
 
+comparar strings
+
+= 	uma string igual a outra
+!= 	uma string diferente da outra
+-n	String não nula
+-z	String nula
+__________________________________________
+
+testar arquivos
+
+-f 	é um arquivo
+-d	é um diretório
+-r	tem permissão de leitura
+-w	tem permissão de escrita
+-x	tem permissão de execução
+-s	possui tamanho maior que zero
+__________________________________________
+
+exemplos: 
+test 50 -gt 100 (se 50 é maior que 100)
+test "$VAR!" -eq 12 (se a variável é igual a 12
+test -f /tmp/teste (se o arquivo existe.)
+
+[ 50 -gt 100 ] (se 50 é maior que 100)
+[ "$VAR!" -eq 12 ] (se a variável é igual a 12
+[ -f /tmp/teste ] (se o arquivo existe.)
+(duas formas que condições, é melhor usar [])
+_______________________________________________
+
+-a	AND (&&) tem preferencia por ordem
+-o	OR (||)
+
+ls -la -f novo.txt 	(se o arquivo existe)
+
+if grep "$1" /etc/passwd > /dev/null  = procura nome no arquivo passwd e se achar joga no buraco negro
+
+if $# -gt 0  = se um parametro foi incluido como pesquisa. ( teste de parametros )
+
+________________________________
+uso do case
+
+case $valor in
+	padrão1)
+		comandos
+		;;
+	padrão2)
+		comandos
+		;;
+	*)
+		comandos
+		;;
+esac
+________________________________
 
 
 
