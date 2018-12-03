@@ -474,6 +474,65 @@ case $HORA in
 esac
 ___________________________________
 
+Estrutura for
+
+for <variavel> in valor1 valor2 ... valorN
+do
+	comando1
+	comando2
+	...
+done
+
+no valor1 pode ser
+$(seq n_inicial intervalo n_final)
+{n_inicial n_final intervalo}
+
+_____________________________________
+
+#for variavel in 1 2 3 4 5
+> do
+> echo "o valor atual é $variavel"
+> done
+
+ou 
+sequencias númericas 
+
+#for vari in 1 2 3 4 5; do echo "o valor é $vari"; done
+#for valor in $(seq 5 15000); do clear ;  echo "$valor" ; sleep 1 ; done
+#for i in {0..20} ; do clear ; echo $i ; sleep 1 ; done
+
+#for files in *; do  cp $files $files.bk; done  = fazendo copia com extensão .bk
+
+while <comando>
+do
+	comando1
+	comando2
+	...
+done
+______________________________________
+ex.: 
+
+x=1
+while [$x -le 20]
+do
+	echo "o valor atual é $x segundos"
+	x=$(expr $x + 1)
+	sleep 1
+done
+_________________________________________
+
+#while [ $(grep -c -i 'douglas' alunos2.txt) -eq 0 ] ; do echo "douglas esta faltando no arquivo"; sleep 10; if [ $(grep -c -i 'douglas' alunos2.txt) -eq 1 ]; then echo "tudo OK"; fi; done
+____________________________________
+until <comandos-condição>
+do
+	comando1
+	comando2
+	...
+done
+
+ex.:
+
+___________________________________
 
 
 
