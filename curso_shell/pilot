@@ -398,7 +398,7 @@ test ou []
 testando valores númericos
 
 -eq	igual (equal)
--ne	diferente (not equal)
+-ne	diferente (not equal) negação
 -gt	maior que (greater than)
 -ge	maior ou igual que (greater equal)
 -lt	menor que (lower than)
@@ -425,11 +425,11 @@ __________________________________________
 
 exemplos: 
 test 50 -gt 100 (se 50 é maior que 100)
-test "$VAR!" -eq 12 (se a variável é igual a 12
+test "$VAR1" -eq 12 (se a variável é igual a 12
 test -f /tmp/teste (se o arquivo existe.)
 
 [ 50 -gt 100 ] (se 50 é maior que 100)
-[ "$VAR!" -eq 12 ] (se a variável é igual a 12
+[ "$VAR1" -eq 12 ] (se a variável é igual a 12
 [ -f /tmp/teste ] (se o arquivo existe.)
 (duas formas que condições, é melhor usar [])
 _______________________________________________
