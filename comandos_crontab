@@ -1,0 +1,61 @@
+(minutos) (horas) (dias do mês) (mês) (dias da semana) (usuário) (comando) Onde:
+
+minutos: Representa o minuto no qual o comando será executado. Aceita apenas números de 0 a 59.
+
+horas: Representa a hora em que o comando será executado. Aceita apenas números de 0 a 23.
+
+dias do mês: Define em que dia o comando será executado. Aceita apenas números de 0 a 31.
+
+mês: Mês para o qual se agendou a execução do comando. Aceita apenas números de 1 a 12.
+
+dias da semana: Define o dia da semana onde o comando será executado. 
+Aceita apenas números de 1 a 7. Sendo 1 para segunda-feira e 7 para o domingo.
+
+usuário: Definimos o usuário que executará o comando. Aceita apenas nomes de usuários previamente criados.
+
+comando: Qualquer comando do sistema, scripts em geral, ou seja, qualquer arquivo que tenha permissão de execução.
+
+Apresentados os campos, vamos aprender como trabalhar com eles de forma prática. Vamos agendar um fictício script de backup para ser executado toda a noite às 22hs.
+
+0 22 * * * root /root/backup.sh
+Note a presença do *. Ele pode ser interpretado como todos, ou todas. Neste caso, agendamos o nosso script para ser executado às 22h e 0m de todos os dias, todos os meses, todos os dias da semana. O usuário que executará o script será o root, e por fim, definimos qual script será executado.
+
+Vamos a um próximo exemplo.
+
+0 0,6,12,18 * * * root /root/backup.sh
+
+Note a presença da vírgula. Ela pode ser traduzida por e. Neste exemplo podemos ler da seguinte forma: “root, execute o script /root/backup.sh todos os dias da semana, todos os meses, todos os dias, às 0,6,12 e 18hs e 0 minutos.” 
+
+Suponhamos que você seja supersticioso e queira agendar um backup geral do sistema toda sexta-feira 13 antes da meia noite. Para o cron, isto não é problema, como mostra o próximo exemplo.
+
+0 23 13 * 5 root /root/backupGeral.sh
+
+No exemplo acima, o script é executado às 23hs e 0min do dia 13 de todos os meses, porém somente quando neste dia 13, o dia da semana for 5(sexta-feira).
+
+Para agendarmos um comando para ser executado de 5 em 5 minutos por exemplo, podemos fazer da seguinte forma:
+
+*/5 * * * * root /root/backup.sh
+
+—
+
+O cron também aceita agendamento por intervalos. Desta forma eu posso agendar um comando para ser executado da seguinte forma: 
+
+*/5 9-18 * * * root /root/backup.sh
+
+Na linha acima, o comando /root/backup.sh é executado a cada 5 minutos, no intervalo das 9 as 18 hs de todos os dias, todos os meses, todos os dias da semana.
+
+—
+
+Existe um outro método, que eu considero como mais apropriado, para agendar tarefas no cron. Usando o comando crontab -e, editamos as tarefas apenas para o usuário corrente. A sintaxe é bem semelhante, com apenas uma modificação: não informamos o usuário que executará o comando, já que esta tabela já é do usuário que executou o comando
+
+crontab -e.
+
+Vejamos a sintaxe:
+
+(minutos) (horas) (dias do mês) (mês) (dias da semana) (comando) 
+
+O restante é tudo igual ao que já foi explicado.
+Para visualizar as tarefas agendadas para o usuário, digite o comando crontab -l.
+O arquivo de configuração também aceita notação de comentário. Desta forma, toda a
+linha do arquivo que começar com o caractere #, será ignorada, ou seja, não será executada.
+
