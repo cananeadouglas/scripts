@@ -1,0 +1,120 @@
+Automatização de tarefas com crontab e cron
+Colaboração: Rubens Queiroz de Almeida
+
+Data de Publicação: 19 de janeiro de 2018
+
+Sem sombra de dúvida, um complemento fundamental para shell scripts, é a possibilidade de agendamento de tarefas. Com este recurso, propiciado pelos aplicativos cron e crontab, a tarefa de administração de sistemas fica grandemente facilitada. Eu mantenho cinco portais (Dicas-L, Contando Histórias, Aprendendo Inglês, Inglês Instrumental e o portal do Instituto de Desenvolvimento do Potencial Humano). Todas as tarefas de manutenção destes portais são feitas por meio de shell scripts, com execução automatizada por meio do cron. O envio das mensagens, a publicação das páginas, o backup do banco de dados, a cópia de segurança de todo o portal para outro servidor, a verificação da taxa de ocupação de espaço em disco, alertas em caso de uso excessivo de CPU e muito mais. Em suma, automatizei tudo que pude, caso contrário seria impossível cuidar de tantos portais.
+
+A automatização de tarefas em sistemas GNU/Linux é feita por meio de dois programas: crontab e cron. Além destes programas, temos também, para cada usuário, um arquivo chamado crontab, que é o local onde são gravadas as diretivas que serão seguidas pelo cron. O arquivo crontab é editado pelo comando crontab. Os arquivos crontab dos usuários são gravados no diretório /var/spool/cron/crontabs.
+
+O formato do arquivo crontab
+Uma linha do arquivo crontab possui o seguinte formato:
+
+0 6 * * * comando 
+Os cinco primeiros campos determinam a periodicidade de execução do comando. Abaixo segue uma explicação do significado de cada um destes campos:
+
+Campo	Significado	Valores
+1	Minutos	0 a 59
+2	Hora	0 a 23
+3	Dia do mês	1 a 31
+4	Mês	1 a 12
+5	Dia da semana	0 a 7, sendo que os números 0 e 7 indicam o domingo
+6	Comando a ser executado	qualquer comando válido do sistema
+Exemplos
+0  20 * * 1-5 comando
+O comando será executado de segunda a sexta (1-5), exatamente às 20h.
+
+10 10 1 * * comando
+O comando será executado às 10h10, do dia 1º de todos os meses.
+
+0,10,20,30,40,50, * 31 12 * comando
+No dia 31 de dezembro, o comando será executado a cada dez minutos, o dia inteiro. Sempre que um campo for preenchido com o asterisco, significa que aquele campo assumirá todos os valores possíveis.
+
+Podemos abreviar esta notação, em vez de especificar cada um dos minutos, podemos fazer da seguinte forma:
+
+*/10 * 31 12 * comando
+Os dias da semana podem também ser indicados por sua abreviação: sun, mon, tue, wed, thu, fri, sat.
+
+Prosseguindo ...
+
+* * * * * comando
+Esta linha da crontab fará com que o comando seja executado todos os minutos, de todos os dias, de todos os meses. É apenas um exemplo, não faça isto, a não ser que tenha uma razão muito boa para tal.
+
+Isto é o básico, mas o aplicativo cron oferece mais alguns recursos muito úteis. A tabela abaixo relaciona mais alguns parâmetros que podemos usar na crontab com seu significado:
+
+Parâmetro	Descrição	Equivale a
+@reboot	ocorre ao iniciar o computador	—
+@yearly	ocorre 1 vez ao ano	0 0 1 1 *
+@annually	o mesmo que @yearly	0 0 1 1 *
+@monthly	ocorre 1 vez ao mês	0 0 1 * *
+@weekly	ocorre 1 vez na semana	0 0 * * 0
+@daily	Executa uma vez ao dia	0 0 * * *
+@midnight	mesmo que @daily	0 0 * * *
+@hourly	ocorre 1 vez a cada hora	0 * * * *
+A diretiva @reboot é particularmente útil, pois em cada sistema nós temos tarefas que precisam ser executadas quando da inicialização da máquina e este parâmetro é um atalho muito conveniente para representar estas atividades.
+
+Para utilizar estes parâmetros, bastam dois campos: o parâmetro em si e o nome do comando. Por exemplo, para executar o backup do banco de dados diariamente, acrescente a seguinte linha ao arquivo crontab:
+
+@daily /usr/local/bin/db_backup.sh
+O script db_backup.sh deve ser criado pelo administrador com as diretivas apropriadas para o backup do banco de dados.
+
+Importante, se o seu computador não estiver no ar quando do horário da execução do comando, o cron não fará um novo agendamento, esta situação precisa ser tratada manualmente. A única exceção é a diretiva @reboot, que faz com que o comando especificado seja executado quanto a máquina for ligada.
+
+Edição da crontab
+Falta agora descobrir como editar a crontab, o que é bastante simples:
+
+$ crontab -e
+A diretiva -e indica ao programa crontab que queremos editar seu conteúdo. O arquivo crontab padrão vem com um conjunto de instruções (em inglês) sobre a sua sintaxe:
+
+# Edit this file to introduce tasks to be run by cron.
+# 
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+# 
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').# 
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+# 
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+# 
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+# 
+# For more information see the manual pages of crontab(5) and cron(8)
+# 
+# m h  dom mon dow   command
+Todas as linhas iniciadas por # são comentários, e você pode removê-las quando quiser, sem problema algum.
+
+O arquivo crontab será aberto utilizando o editor de sua preferência. Você pode definir esta preferência através da variável de ambiente EDITOR:
+
+export EDITOR=vi 
+Se você não conhece o vi, pode usar o nano, que é um editor mais amigável, embora com muito menos recursos.
+
+Caso deseje apenas listar o conteúdo do arquivo crontab, digite:
+
+$ crontab -l
+O usuário root pode editar diretamente a crontab dos usuários do sistema que administra. Para isto basta executar o comando:
+
+# crontab -u [nome do usuário] -e 
+IMPORTANTE: não é só colocar o comando na crontab e esquecer da vida, precisamos gerar alertas ou verificar a saída gerada pelo arquivo para ver se tudo deu certo.
+
+Por padrão, o cron envia para o usuário um email com o resultado do comando. Através da análise destas mensagens, podemos decidir o que fazer.
+
+Caso queiramos que o email seja enviado para um outro usuário, podemos definir, no arquivo crontab, a variável MAILTO:
+
+ MAILTO="admin@mydomain.com" 
+E se eu errar na edição da crontab, corro o risco de perder alguma coisa? Fique tranquilo, sempre que você gravar a crontab, se houver algum erro de sintaxe, o sistema te avisa, não grava as alterações e te pergunta se você quer refazer a edição:
+
+$ crontab -e
+
+crontab: installing new crontab
+"/tmp/crontab.KA6PeR/crontab":24: bad minute
+errors in crontab file, can't install.
+Do you want to retry the same edit? (y/n)
+
+Não se esqueça, sempre coloque o caminho completo do comando, visto que a variável PATH da execução do comando via cron é diferente daquela do seu ambiente.

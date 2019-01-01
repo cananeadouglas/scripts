@@ -1,0 +1,54 @@
+Dec 19 14:20:47 douglas-Inspiron-5458 systemd[1]: Starting Load/Save RF Kill Switch Status...
+Dec 19 14:20:47 douglas-Inspiron-5458 rfkill: block set for type bluetooth
+Dec 19 14:20:47 douglas-Inspiron-5458 systemd[1]: Started Load/Save RF Kill Switch Status.
+Dec 19 14:21:25 douglas-Inspiron-5458 NetworkManager[829]: <info>  [1545240085.3001] manager: NetworkManager state is now CONNECTED_GLOBAL
+Dec 19 14:21:25 douglas-Inspiron-5458 dbus-daemon[808]: [system] Activating via systemd: service name='org.freedesktop.nm_dispatcher' unit='dbus-org.freedesktop.nm-dispatcher.service' requested by ':1.11' (uid=0 pid=829 comm="/usr/sbin/NetworkManager --no-daemon " label="unconfined")
+Dec 19 14:21:25 douglas-Inspiron-5458 systemd[1]: Starting Network Manager Script Dispatcher Service...
+Dec 19 14:21:25 douglas-Inspiron-5458 dbus-daemon[808]: [system] Successfully activated service 'org.freedesktop.nm_dispatcher'
+Dec 19 14:21:25 douglas-Inspiron-5458 nm-dispatcher: req:1 'connectivity-change': new request (1 scripts)
+Dec 19 14:21:25 douglas-Inspiron-5458 nm-dispatcher: req:1 'connectivity-change': start running ordered scripts...
+Dec 19 14:21:25 douglas-Inspiron-5458 systemd[1]: Started Network Manager Script Dispatcher Service.
+Dec 19 14:22:29 douglas-Inspiron-5458 dbus-daemon[1001]: [session uid=1000 pid=1001] Activating service name='org.gnome.baobab' requested by ':1.45' (uid=1000 pid=1293 comm="cinnamon --replace " label="unconfined")
+Dec 19 14:22:29 douglas-Inspiron-5458 dbus-daemon[1001]: [session uid=1000 pid=1001] Successfully activated service 'org.gnome.baobab'
+Dec 19 14:22:29 douglas-Inspiron-5458 dbus-daemon[808]: [system] Activating via systemd: service name='org.freedesktop.hostname1' unit='dbus-org.freedesktop.hostname1.service' requested by ':1.189' (uid=1000 pid=17807 comm="/usr/bin/baobab --gapplication-service " label="unconfined")
+Dec 19 14:22:29 douglas-Inspiron-5458 systemd[1]: Starting Hostname Service...
+Dec 19 14:22:29 douglas-Inspiron-5458 dbus-daemon[808]: [system] Successfully activated service 'org.freedesktop.hostname1'
+Dec 19 14:22:29 douglas-Inspiron-5458 systemd[1]: Started Hostname Service.
+Dec 19 14:23:33 douglas-Inspiron-5458 wpa_supplicant[843]: wlp6s0: CTRL-EVENT-SIGNAL-CHANGE above=1 signal=-30 noise=-93 txrate=39000
+Dec 19 14:23:33 douglas-Inspiron-5458 wpa_supplicant[843]: wlp6s0: CTRL-EVENT-SIGNAL-CHANGE above=1 signal=-13 noise=-93 txrate=39000
+Dec 19 14:21:25 douglas-Inspiron-5458 nm-dispatcher: req:1 'connectivity-change': start running ordered scripts...
+Dec 19 14:21:25 douglas-Inspiron-5458 systemd[1]: Started Network Manager Script Dispatcher Service.
+Dec 19 14:22:29 douglas-Inspiron-5458 dbus-daemon[1001]: [session uid=1000 pid=1001] Activating service name='org.gnome.baobab' requested by ':1.45' (uid=1000 pid=1293 comm="cinnamon --replace " label="unconfined")
+Dec 19 14:22:29 douglas-Inspiron-5458 dbus-daemon[1001]: [session uid=1000 pid=1001] Successfully activated service 'org.gnome.baobab'
+Dec 19 14:22:29 douglas-Inspiron-5458 dbus-daemon[808]: [system] Activating via systemd: service name='org.freedesktop.hostname1' unit='dbus-org.freedesktop.hostname1.service' requested by ':1.189' (uid=1000 pid=17807 comm="/usr/bin/baobab --gapplication-service " label="unconfined")
+Dec 19 14:22:29 douglas-Inspiron-5458 systemd[1]: Starting Hostname Service...
+Dec 19 14:22:29 douglas-Inspiron-5458 dbus-daemon[808]: [system] Successfully activated service 'org.freedesktop.hostname1'
+Dec 19 14:22:29 douglas-Inspiron-5458 systemd[1]: Started Hostname Service.
+Dec 19 14:23:33 douglas-Inspiron-5458 wpa_supplicant[843]: wlp6s0: CTRL-EVENT-SIGNAL-CHANGE above=1 signal=-30 noise=-93 txrate=39000
+Dec 19 14:23:33 douglas-Inspiron-5458 wpa_supplicant[843]: wlp6s0: CTRL-EVENT-SIGNAL-CHANGE above=1 signal=-13 noise=-93 txrate=39000
+Dec 19 14:26:51 douglas-Inspiron-5458 gnome-terminal-[17122]: g_menu_insert_item: assertion 'G_IS_MENU_ITEM (item)' failed
+Dec 19 14:26:59 douglas-Inspiron-5458 gnome-terminal-[17122]: g_menu_insert_item: assertion 'G_IS_MENU_ITEM (item)' failed
+Dec 19 14:28:53 douglas-Inspiron-5458 sSMTP[18905]: Creating SSL connection to host
+Dec 19 14:28:53 douglas-Inspiron-5458 sSMTP[18930]: Creating SSL connection to host
+Dec 19 14:28:54 douglas-Inspiron-5458 sSMTP[18905]: SSL connection using ECDHE_RSA_CHACHA20_POLY1305
+Dec 19 14:28:54 douglas-Inspiron-5458 sSMTP[18930]: SSL connection using ECDHE_RSA_CHACHA20_POLY1305
+Dec 19 14:28:55 douglas-Inspiron-5458 sSMTP[18905]: Authorization failed (535 5.7.8  https://support.google.com/mail/?p=BadCredentials m41sm3042636qtc.58 - gsmtp)
+Dec 19 14:28:55 douglas-Inspiron-5458 sSMTP[18930]: Authorization failed (535 5.7.8  https://support.google.com/mail/?p=BadCredentials f19sm2699320qtf.1 - gsmtp)
+Dec 19 14:32:41 douglas-Inspiron-5458 bluetoothd[1283]: Failed to set mode: Blocked through rfkill (0x12)
+Dec 19 14:32:41 douglas-Inspiron-5458 bluetoothd[1283]: Failed to set mode: Blocked through rfkill (0x12)
+Dec 19 14:32:45 douglas-Inspiron-5458 rfkill: unblock set for type bluetooth
+Dec 19 14:32:45 douglas-Inspiron-5458 systemd[1]: Starting Load/Save RF Kill Switch Status...
+Dec 19 14:32:45 douglas-Inspiron-5458 systemd[1]: Started Load/Save RF Kill Switch Status.
+Dec 19 14:32:45 douglas-Inspiron-5458 kernel: [12388.877302] Bluetooth: hci0: last event is not cmd complete (0x0f)
+Dec 19 14:32:58 douglas-Inspiron-5458 rfkill: block set for type bluetooth
+Dec 19 14:32:58 douglas-Inspiron-5458 systemd[1]: Starting Load/Save RF Kill Switch Status...
+Dec 19 14:32:58 douglas-Inspiron-5458 systemd[1]: Started Load/Save RF Kill Switch Status.
+Dec 19 14:34:01 douglas-Inspiron-5458 systemd[1]: Reloading.
+Dec 19 14:34:01 douglas-Inspiron-5458 kernel: [12464.835264] JFS: nTxBlock = 8192, nTxLock = 65536
+Dec 19 14:34:01 douglas-Inspiron-5458 kernel: [12464.865749] SGI XFS with ACLs, security attributes, realtime, no debug enabled
+Dec 19 14:34:21 douglas-Inspiron-5458 systemd[1]: Reloading.
+Dec 19 14:35:45 douglas-Inspiron-5458 gnome-terminal-[17122]: g_menu_insert_item: assertion 'G_IS_MENU_ITEM (item)' failed
+Dec 19 14:36:10 douglas-Inspiron-5458 gnome-terminal-[17122]: message repeated 2 times: [ g_menu_insert_item: assertion 'G_IS_MENU_ITEM (item)' failed]
+Dec 19 14:39:01 douglas-Inspiron-5458 CRON[20159]: (root) CMD (  [ -x /usr/lib/php/sessionclean ] && if [ ! -d /run/systemd/system ]; then /usr/lib/php/sessionclean; fi)
+Dec 19 14:39:43 douglas-Inspiron-5458 systemd[1]: Starting Clean php session files...
+Dec 19 14:39:44 douglas-Inspiron-5458 systemd[1]: Started Clean php session files.

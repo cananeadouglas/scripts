@@ -39,6 +39,7 @@ tac  = inverso
 
 tail arquivo.txt  = mostra as ultimas 10 linhas do arquivo
 tail -n3 arquivo.txt  = mostra 3 linhas últimas
+tail -f arquivo.txt  = mostra tudo que esta dentro do arquivo e novas gravações. o terminal fica aberto esperando novas gravação no arquivo 
 
 head -n5 arquivo.txt  = mostra os primeiros 5 linhas
 
