@@ -7,5 +7,8 @@ rodar com ./nome.sh
 instalar csh
 sudo apt-get install csh
 
+sudo apt-get install vim-gtk
+
+
 
 

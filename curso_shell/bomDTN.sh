@@ -12,15 +12,17 @@ then
 else
 	echo "Boa Noite"
 fi
-sleep 2
+sleep 1
 clear
 echo "verificando existência de atualização."
-sleep 2
+sudo apt-get update > /dev/null
+sleep 1
 clear
 echo "verificando existência de atualização.."
-sleep 2
+sudo apt-get upgrade -y /dev/null
+sleep 1
 clear
 echo "verificando existência de atualização..."
-sleep 2
+sleep 1
 clear
 

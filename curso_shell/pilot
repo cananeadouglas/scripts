@@ -234,6 +234,15 @@ i  = insersão de dados  (mostra em baixo INSERT) para sair ESC
 :!  = (pode digitar um comando no bash)
 ex. :!ls /tmp  = executa o ls /tmp e depois volta para o arquivo vi
 
+modo de seleção
+
+:ggVG  = seleciona todo o texto ativo.
+:shift + v  = seleção da linha, seta pra cima e para baixo pode fazer mais seleção.
+:Ctrol + v  = seleção por campo, seta para os lados e cima e baixo completam a seleção.
+
+:==  = identação do código
+
+ 
 modo de busca
 
 /linux  = de cima para baixo
@@ -519,6 +528,15 @@ do
 	echo "o valor atual é $x segundos"
 	x=$(expr $x + 1)
 	sleep 1
+done
+
+#!/bin/bash
+echo “Informe o que você quiser, -1 para sair”
+read dado;
+while [ $dado != “-1” ];
+do
+    echo “Você digitou $dado”
+    read dado;
 done
 _________________________________________
 
