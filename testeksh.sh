@@ -1,6 +1,6 @@
-#!/bin/ksh
+#!/bin/bash
 
-r=3.5
+r=2.55
 s=2.5
 
 if [ $r > $s ]

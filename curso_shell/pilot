@@ -226,6 +226,8 @@ i  = insersão de dados  (mostra em baixo INSERT) para sair ESC
 
 :  = modo de comando
 
+u	Desfaz o último comando
+
 :1  = primeira linha do arquivo
 :$  = ultima linha do arquivo
 
@@ -236,9 +238,9 @@ ex. :!ls /tmp  = executa o ls /tmp e depois volta para o arquivo vi
 
 modo de seleção
 
-:ggVG  = seleciona todo o texto ativo.
-:shift + v  = seleção da linha, seta pra cima e para baixo pode fazer mais seleção.
-:Ctrol + v  = seleção por campo, seta para os lados e cima e baixo completam a seleção.
+ggVG  = seleciona todo o texto ativo.
+shift + v  = seleção da linha, seta pra cima e para baixo pode fazer mais seleção.
+Ctrol + v  = seleção por campo, seta para os lados e cima e baixo completam a seleção.
 
 :==  = identação do código
 
